@@ -2,7 +2,7 @@ name: Daily Node.js Script
 
 on:
   schedule:
-    - cron: '30 16 * * *'  # 12:30 PM ET (adjusted to UTC)
+    - cron: '37 12 * * *'  # 12:30 PM ET (adjusted to UTC)
   workflow_dispatch:        # allows manual trigger
 
 jobs:
