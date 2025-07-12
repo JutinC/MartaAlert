@@ -1,0 +1,34 @@
+name: Daily Node.js Script
+
+on:
+  schedule:
+    - cron: '30 16 * * *'  # 12:30 PM ET (adjusted to UTC)
+  workflow_dispatch:        # allows manual trigger
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23.11.0'  # or whatever version you use
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Node script with environment variables
+        env:
+          MARTA_API_KEY: ${{ secrets.MARTA_API_KEY }}
+          ACCOUNTSID: ${{ secrets.ACCOUNTSID }}
+          AUTHTOKEN: ${{ secrets.AUTHTOKEN }}
+          PHONENUMBER: ${{ secrets.PHONENUMBER }}
+          CONTENTSID: ${{ secrets.CONTENTSID }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+
+          # Add more secrets as needed
+        run: node index.js  # Replace with actual script path
