@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/JutinC/MartaAlert/issues"
   },
-  "homepage": "https://github.com/JutinC/MartaAlert#readme"
+  "homepage": "https://github.com/JutinC/MartaAlert#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "dotenv": "^16.6.1",
+    "twilio": "^5.7.3"
+  }
 }
